@@ -17,7 +17,7 @@ Spin up an Ubuntu 14 LTS server with a public IP (AWS, Rackspace, etc). Log into
     apt-get install git
     apt-get install python-pip
     pip install jenkins-job-builder
-    curl -L https://github.com/docker/fig/releases/download/1.0.1/fig-`uname -s`-`uname -m` > /usr/local/bin/fig; chmod +x /usr/local/bin/fig
+    pip install docker-compose
 
 ## Jenkins
 
@@ -32,11 +32,7 @@ Clone CumulusCIJenkins
 
 Build the Jenkins docker image
 
-    sudo fig build
-    
-Launch the Jenkins image in the foreground
-    
-    sudo fig up
+    sudo docker-compose up -d
 
 Connect to Jenkins in a browser
 
@@ -44,7 +40,7 @@ Connect to Jenkins in a browser
 
 Kill Jenkins with Ctrl-C in the terminal window.  Restart Jenkins as a daemon running in background mode
     
-    sudo fig start
+    sudo docker-compose restart
 
 ## Jenkins Jobs
 
