@@ -41,8 +41,8 @@ USER jenkins
 COPY plugins.txt /plugins.txt
 #ADD jobs/ /var/jenkins_home/jobs/
 
-VOLUME ./jenkins_home /var/jenkins_home
-VOLUME ./credentials /var/jenkins_credentials
+RUN useradd -d "/var/jenkins_home" -u 1000 -m -s /bin/bash jenkins
+VOLUME ["/var/log/jenkins", "/var/jenkins_home"]
 
 # Install plugins from list
 RUN /usr/local/bin/plugins.sh /plugins.txt
