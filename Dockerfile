@@ -41,7 +41,7 @@ USER jenkins
 COPY plugins.txt /plugins.txt
 #ADD jobs/ /var/jenkins_home/jobs/
 
-RUN useradd -d "/var/jenkins_home" -u 1000 -m -s /bin/bash jenkins
+# Make the Jenkins log and home folders a mount
 VOLUME ["/var/log/jenkins", "/var/jenkins_home"]
 
 # Install plugins from list
